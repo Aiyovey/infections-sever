@@ -1,7 +1,7 @@
 package com.jd.infectious.business.newcase;
 
 import com.jd.infectious.common.vo.NewCaseDataVO;
-import com.jd.infectious.entity.NewCaseDataEntity;
+import com.jd.infectious.domain.NewCaseData;
 import com.jd.infectious.service.NewCaseDataService;
 import org.apache.commons.collections4.keyvalue.DefaultKeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class NewCaseBusiness {
     private NewCaseDataService newCaseDataService;
 
     public NewCaseDataVO getNewCaseData() {
-        List<NewCaseDataEntity> list = newCaseDataService.getList();
+        List<NewCaseData> list = newCaseDataService.getList();
         List<DefaultKeyValue<Integer, Integer>> newCaseData = new ArrayList<>();
         List<DefaultKeyValue<Integer, String>> xLabels = new ArrayList<>();
 //        int count = 0;

@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @since 2024-09-03 19:29:09
  */
 @Data
-public class NewCaseDataEntity implements Serializable {
+public class NewCaseData implements Serializable {
     private static final long serialVersionUID = -73371868239354209L;
     
     private Integer idx;

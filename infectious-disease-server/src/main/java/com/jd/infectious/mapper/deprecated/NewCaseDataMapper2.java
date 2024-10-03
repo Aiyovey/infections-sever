@@ -1,6 +1,6 @@
 package com.jd.infectious.mapper.deprecated;
 
-import com.jd.infectious.domain.NewCaseDataEntity;
+import com.jd.infectious.domain.NewCaseData;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
@@ -22,10 +22,10 @@ public class NewCaseDataMapper2 {
      *
      * @return List<NewCaseData>
      */
-    public List<NewCaseDataEntity> getList() {
+    public List<NewCaseData> getList() {
         String sql = "SELECT  *  FROM new_case_data ";
 
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper(NewCaseDataEntity.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper(NewCaseData.class));
     }
 
     /**
@@ -48,8 +48,8 @@ public class NewCaseDataMapper2 {
      * @param agentId
      * @return
      */
-    public NewCaseDataEntity getNewCaseDataByAgentId(Integer agentId) {
-        final NewCaseDataEntity NewCaseDataEntity = new NewCaseDataEntity();
+    public NewCaseData getNewCaseDataByAgentId(Integer agentId) {
+        final NewCaseData NewCaseData = new NewCaseData();
 
         //SQL
         String sql = "SELECT *  FROM agent_visit WHERE agent_id = " + agentId;
@@ -58,15 +58,15 @@ public class NewCaseDataMapper2 {
             //映射每行数据
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                NewCaseDataEntity.setIdx(rs.getInt("idx"));
-                NewCaseDataEntity.setAgentNum(rs.getInt("agent_num"));
-                NewCaseDataEntity.setAgentId(rs.getInt("agent_id"));
-                NewCaseDataEntity.setIsNewCase(rs.getInt("is_new_case"));
-                NewCaseDataEntity.setParentCase(rs.getInt("parent_case"));
-                NewCaseDataEntity.setStep(rs.getInt("step"));
-                NewCaseDataEntity.setRegion(rs.getInt("region"));
+                NewCaseData.setIdx(rs.getInt("idx"));
+                NewCaseData.setAgentNum(rs.getInt("agent_num"));
+                NewCaseData.setAgentId(rs.getInt("agent_id"));
+                NewCaseData.setIsNewCase(rs.getInt("is_new_case"));
+                NewCaseData.setParentCase(rs.getInt("parent_case"));
+                NewCaseData.setStep(rs.getInt("step"));
+                NewCaseData.setRegion(rs.getInt("region"));
             }
         });
-        return NewCaseDataEntity;
+        return NewCaseData;
     }
 }

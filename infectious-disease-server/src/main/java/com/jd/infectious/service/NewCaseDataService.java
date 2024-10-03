@@ -1,7 +1,7 @@
 package com.jd.infectious.service;
 
 
-import com.jd.infectious.entity.NewCaseDataEntity;
+import com.jd.infectious.domain.NewCaseData;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @since 2024-09-03 19:32:08
  */
 public interface NewCaseDataService {
-    List<NewCaseDataEntity> getList();
-    NewCaseDataEntity getNewCaseDataByAgentId(Integer agentId);
+    List<NewCaseData> getList();
+    NewCaseData getNewCaseDataByAgentId(Integer agentId);
 
 }
