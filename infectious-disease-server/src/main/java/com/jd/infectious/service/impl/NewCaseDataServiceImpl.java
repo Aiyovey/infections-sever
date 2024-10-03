@@ -30,4 +30,9 @@ public class NewCaseDataServiceImpl extends ServiceImpl<NewCaseDataMapper, NewCa
         return getOne(wrapper);
     }
 
+    @Override
+    public long getInfectionNum() {
+        return baseMapper.selectCount(new LambdaQueryWrapper<NewCaseData>());
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.jd.infectious.business.newcase;
 
 import com.jd.infectious.common.vo.NewCaseDataVO;
+import com.jd.infectious.constant.InfectionsConstant;
 import com.jd.infectious.domain.NewCaseData;
 import com.jd.infectious.service.NewCaseDataService;
 import org.apache.commons.collections4.keyvalue.DefaultKeyValue;
@@ -8,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class NewCaseBusiness {
@@ -32,6 +35,17 @@ public class NewCaseBusiness {
         NewCaseDataVO res = new NewCaseDataVO();
         res.setCaseData(newCaseData);
         res.setXlabel(xLabels);
+        return res;
+    }
+
+    /**
+     * 获取感染模拟当前结果
+     * @return 当前结果
+     */
+    public Map<String, Object> getInfectionRes() {
+        Map<String, Object> res = new HashMap<>(16);
+        long infectionNum = newCaseDataService.getInfectionNum();
+        res.put(InfectionsConstant.INFECTION_NUM, infectionNum);
         return res;
     }
 }

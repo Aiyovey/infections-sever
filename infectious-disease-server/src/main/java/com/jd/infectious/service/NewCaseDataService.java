@@ -13,6 +13,9 @@ import java.util.List;
  */
 public interface NewCaseDataService {
     List<NewCaseData> getList();
+
     NewCaseData getNewCaseDataByAgentId(Integer agentId);
+
+    long getInfectionNum();
 
 }
