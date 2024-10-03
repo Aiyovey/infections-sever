@@ -5,11 +5,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jd.infectious.common.param.agentdynamic.AgentsDynamicStepParam;
 import com.jd.infectious.domain.AgentsDynamic;
 import com.jd.infectious.mapper.AgentsDynamicMapper;
-import com.jd.infectious.mapper.AgentsDynamicMapper2;
 import com.jd.infectious.service.AgentsDynamicService;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 /**

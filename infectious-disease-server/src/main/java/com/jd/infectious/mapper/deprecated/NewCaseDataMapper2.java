@@ -1,4 +1,4 @@
-package com.jd.infectious.mapper;
+package com.jd.infectious.mapper.deprecated;
 
 import com.jd.infectious.domain.NewCaseDataEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Deprecated
 @Repository
 public class NewCaseDataMapper2 {
     @Resource

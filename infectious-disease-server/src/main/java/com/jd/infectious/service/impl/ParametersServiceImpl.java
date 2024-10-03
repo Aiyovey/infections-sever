@@ -1,11 +1,11 @@
 package com.jd.infectious.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jd.infectious.domain.Parameters;
 import com.jd.infectious.mapper.ParametersMapper;
 import com.jd.infectious.service.ParametersService;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,22 +15,22 @@ import java.util.List;
  * @since 2024-09-03 19:32:08
  */
 @Service("parametersService")
-public class ParametersServiceImpl implements ParametersService {
-    @Resource
-    private ParametersMapper parametersMapper;
+public class ParametersServiceImpl extends ServiceImpl<ParametersMapper, Parameters> implements ParametersService {
 
     @Override
     public List<Parameters> getList() {
-        return parametersMapper.getList();
+        return list();
     }
 
     @Override
     public int insert(Parameters parameters) {
-        return parametersMapper.insert(parameters);
+        return save(parameters) ? 1 : 0;
     }
 
     @Override
     public Parameters getAgentDynamicByName(String name) {
-        return parametersMapper.getAgentDynamicByName(name);
+        LambdaQueryWrapper<Parameters> queryWrapper = new LambdaQueryWrapper<Parameters>()
+                .eq(Parameters::getName, name);
+        return getOne(queryWrapper);
     }
 }

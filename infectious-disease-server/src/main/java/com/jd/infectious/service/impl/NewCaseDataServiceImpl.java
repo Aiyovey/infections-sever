@@ -4,11 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jd.infectious.entity.NewCaseDataEntity;
 import com.jd.infectious.mapper.NewCaseDataMapper;
-import com.jd.infectious.mapper.NewCaseDataMapper2;
 import com.jd.infectious.service.NewCaseDataService;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
